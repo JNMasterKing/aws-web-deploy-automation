@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jaynarayan Marwadi | Java Backend Developer</title>
+  <link rel="icon" type="image/png" href="/images/p1.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #0f172a;
+      color: #e2e8f0;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+      padding: 4rem 2rem;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    header img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+      object-fit: cover;
+      border: 5px solid #22d3ee;
+    }
+
+    header h1 {
+      font-size: 3.5rem;
+      color: #22d3ee;
+      font-weight: 700;
+    }
+
+    header p {
+      font-size: 1.25rem;
+      margin-top: 0.5rem;
+      color: #cbd5e1;
+    }
+
+    nav {
+      margin-top: 1.5rem;
+    }
+
+    nav a {
+      color: #94a3b8;
+      text-decoration: none;
+      margin: 0 1.5rem;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #22d3ee;
+    }
+
+    section {
+      padding: 4rem 2rem;
+      max-width: 1100px;
+      margin: auto;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.6s ease forwards;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: #22d3ee;
+      text-align: center;
+      border-bottom: 2px solid #334155;
+      padding-bottom: 0.5rem;
+    }
+
+    ul li {
+      list-style: disc;
+      margin-left: 2rem;
+      margin-bottom: 0.75rem;
+      color: #cbd5e1;
+    }
+
+    .project {
+      background-color: #1e293b;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border-left: 5px solid #22d3ee;
+      border-radius: 0.5rem;
+      box-shadow: 0 6px 14px rgba(34, 211, 238, 0.15);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .project:hover {
+      transform: scale(1.03);
+      box-shadow: 0 8px 16px rgba(34, 211, 238, 0.25);
+    }
+
+    .project h3 {
+      margin-bottom: 0.5rem;
+      color: #f1f5f9;
+      font-size: 1.9rem;
+    }
+
+    .project p {
+      color: #cbd5e1;
+      font-size: 1rem;
+    }
+
+    .project a {
+      color: #22d3ee;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    .project a:hover {
+      text-decoration: underline;
+      color: #67e8f9;
+    }
+
+    .skill-card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      justify-content: center;
+    }
+
+    .skill-card {
+      background-color: #1e293b;
+      padding: 1.5rem;
+      border-radius: 0.75rem;
+      box-shadow: 0 4px 8px rgba(15, 23, 42, 0.2);
+    }
+
+    .skill-card h3 {
+      font-size: 1.3rem;
+      color: #22d3ee;
+      margin-bottom: 0.75rem;
+    }
+
+    .skill-card p {
+      color: #cbd5e1;
+      font-size: 0.95rem;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .social-icons a img {
+      width: 36px;
+      height: 36px;
+      filter: invert(90%);
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+
+    .social-icons a:hover img {
+      transform: scale(1.3);
+      filter: invert(60%) sepia(100%) saturate(500%) hue-rotate(180deg);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2.5rem;
+      background-color: #0f172a;
+      color: #94a3b8;
+      font-size: 0.9rem;
+      border-top: 1px solid #334155;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: #22d3ee;
+      color: #fff;
+      padding: 0.8rem 1.5rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 1rem;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #67e8f9;
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.5rem;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      nav a {
+        margin: 0 0.8rem;
+        font-size: 0.9rem;
+      }
+
+      .project {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="/images/photo.png" alt="Jaynarayan Marwadi" />
+    <h1>Jaynarayan Marwadi</h1>
+    <p>Java Backend Developer | Cloud Enthusiast | Problem Solver</p>
+    <p>"Crafting secure, scalable backend systems with Java, Spring Boot, and AWS."</p>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+      <a href="#certificates">Certificates</a>
+      <a href="#achievements">Achievements</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="about">
+    <h2 class="section-title">About Me</h2>
+    <p>
+      I’m a passionate Backend Developer with expertise in designing RESTful APIs, developing scalable backend systems, and implementing secure applications using Java, Spring Boot, Hibernate, and AWS. Currently pursuing a BTech in Computer Science at Parul University, I’m dedicated to cloud engineering, complex problem-solving, and mastering data structures and algorithms. My goal is to build robust, efficient software solutions that drive innovation.
+    </p>
+  </section>
+
+  <section id="skills">
+    <h2 class="section-title">Skills</h2>
+    <div class="skill-card-container">
+      <div class="skill-card">
+        <h3>Programming Languages</h3>
+        <p>Java, Python</p>
+      </div>
+      <div class="skill-card">
+        <h3>Frameworks & Tools</h3>
+        <p>Spring Boot, Hibernate, Git, JUnit, Postman</p>
+      </div>
+      <div class="skill-card">
+        <h3>Cloud & Databases</h3>
+        <p>AWS, MySQL, PostgreSQL</p>
+      </div>
+      <div class="skill-card">
+        <h3>Practices & Soft Skills</h3>
+        <p>RESTful API Design, MVC Architecture, OOP, Effective Communication, Problem Solving</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2 class="section-title">Projects</h2>
+    <div class="project">
+      <h3>Tech Circulo - Student Community Platform</h3>
+      <p>Developed and deployed the backend for a student community web app (Dec 2024 - Mar 2025) to connect students and faculty based on interest groups (e.g., AI, ML, Web Dev). Features include secure user authentication, role-based access, event sharing, and real-time collaboration.</p>
+      <p><strong>Tech Stack:</strong> Java, Spring Boot, MySQL, Hibernate, Spring Security, REST APIs</p>
+      <p><a href="https://github.com/JNMasterKing/TechCirculo" target="_blank">GitHub Repository</a></p>
+    </div>
+    <div class="project">
+      <h3>AWS Cloud Resume Challenge</h3>
+      <p>Created a personal portfolio hosted entirely on AWS, featuring a visitor counter API. Leveraged services like S3, CloudFront, Route53, Lambda, and DynamoDB, with CI/CD implemented via GitHub Actions.</p>
+      <p><strong>Tech Stack:</strong> AWS (S3, Lambda, API Gateway, DynamoDB), GitHub Actions, HTML/CSS/JS</p>
+      <p><a href="https://github.com/Jaynarayan-dev/AWS-Cloud-Resume-Challenge" target="_blank">GitHub Repository</a></p>
+    </div>
+  </section>
+
+  <section id="education">
+    <h2 class="section-title">Education</h2>
+    <div class="project">
+      <h3>BTech in Computer Science</h3>
+      <p><strong>Parul University, Vadodara, India</strong> | 2022 - 2026</p>
+      <p>Pursuing a Bachelor’s degree with a focus on software development, cloud computing, and data structures.</p>
+    </div>
+  </section>
+
+  <section id="certificates">
+    <h2 class="section-title">Certificates</h2>
+    <ul>
+      <li><strong>AWS Cloud Practitioner</strong> - Certified in foundational AWS cloud concepts.</li>
+      <li><strong>Java Spring Boot Development</strong> - Proficient in building backend applications with Spring Boot.</li>
+    </ul>
+  </section>
+
+  <section id="achievements">
+    <h2 class="section-title">Achievements</h2>
+    <ul>
+      <li><strong>Led Backend Development - Tech Circulo Project</strong>: Directed a 3-member team to deliver RESTful APIs using Spring Boot and MySQL, ensuring a secure and scalable architecture.</li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <h2 class="section-title">Contact</h2>
+    <p style="text-align: center; margin-bottom: 1.5rem;">
+      Reach out to me via email or connect with me on the following platforms:
+    </p>
+    <div class="social-icons">
+      <a href="mailto:jaynaryanmarwadi123@gmail.com" target="_blank" title="Email">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/gmail.svg" alt="Email" />
+      </a>
+      <a href="https://github.com/JNMasterKing" target="_blank" title="GitHub">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg" alt="GitHub" />
+      </a>
+      <a href="https://www.linkedin.com/in/jaynarayan-marwadi-8158a4258" target="_blank" title="LinkedIn">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" alt="LinkedIn" />
+      </a>
+      <a href="https://leetcode.com/u/jnmarwadi" target="_blank" title="LeetCode">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/leetcode.svg" alt="LeetCode" />
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Jaynarayan Marwadi. All rights reserved.</p>
+  </footer>
+</body>
+</html>
