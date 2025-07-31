@@ -16,17 +16,6 @@ const observer = new IntersectionObserver(function(entries) {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('visible');
-      
-      // Animate progress bars
-      if (entry.target.id === 'skills') {
-        const progressBars = entry.target.querySelectorAll('.progress-fill');
-        progressBars.forEach(bar => {
-          const width = bar.getAttribute('data-width');
-          setTimeout(() => {
-            bar.style.width = width + '%';
-          }, 300);
-        });
-      }
     }
   });
 }, observerOptions);
